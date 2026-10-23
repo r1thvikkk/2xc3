@@ -1,0 +1,16 @@
+#!/bin/bash
+# deltemp - deletes all .tmp files in the given directory
+# Usage: deltemp <directory>
+# Rithvik Ballamudi
+
+ORIG=$PWD
+
+if [[ "$1" = "" ]]
+then
+    echo "Usage: deltemp <directory>"
+    exit 1
+fi
+
+cd "$1" || exit 1
+rm -f *.tmp
+cd "$ORIG"

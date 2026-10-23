@@ -1,0 +1,16 @@
+Lab 1.1 Reflection
+Rithvik Ballamudi - SFWRENG 2XC3
+
+1. What are the top 3 things I've learned so far?
+- How to use the Linux command line to move around in the file system 
+     (pwd, ls, cd, mkdir, cp, mv, rm) without having to use any graphical tool.
+   - An explanation of how the Linux file permissions work, including how to 
+     read them (ls -l) and change them with the help of chmod, with the use of 
+     numerical values such as 600, 700.
+2. What am I excited to learn more about?
+- Using Git and GitHub correctly, and creating a complete CI pipeline using GitHub Actions which automatically compiles and tests my code.
+   - Writing more advanced shell scripts for automation of repetitive tasks.
+3. What am I worried about in this course?
+Challenges I am Facing
+- Getting used to vim, as the various modes and command lines are confusing for me.
+   - Maintaining the pace of learning, as each lab depends on the previous one and even the slightest error in configuration can create problems.
