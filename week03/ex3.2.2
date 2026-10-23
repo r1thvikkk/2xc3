@@ -1,0 +1,13 @@
+Rithvik Ballamudi - 400620595
+Lab 3.2, Exercise 2
+a. di runs its first argument as a command ($1 gets replaced with
+   the argument text, then executed).
+   Command: ./di 'ls -l'
+   The quotes keep "ls -l" as one argument. Without them, $1 would
+   just be ls.
+b. Prediction:  a 1 aC 10
+   Actual:      a 1 a1C 1*10
+   - C: the braces just mark where the variable name ends, so
+     ${B}C becomes 1C, giving a1C.
+   - D: bash doesn't do math in assignments. Everything is a
+     string, so D is literally 1*10.
