@@ -1,0 +1,28 @@
+#!/bin/bash
+# bashsplit2 - like bashsplit, but only prints proper words
+# (made up entirely of English letters and digits)
+# Usage: bashsplit2 < input
+# Rithvik Ballamudi, 400620595
+if [[ $# -gt 0 ]]
+then
+    echo "Usage: bashsplit2 < input   (takes no arguments)" >&2
+    exit 1
+fi
+set -f   # stop bash from turning * or ? into file names
+WORD_PATTERN='^[a-zA-Z0-9]+$'
+while true
+do
+    read -r line
+    STATUS=$?   # non-zero once we hit EOF
+    for word in $line
+    do
+        if [[ $word =~ $WORD_PATTERN ]]
+        then
+            printf '%s\n' "$word"
+        fi
+    done
+    if [[ $STATUS -ne 0 ]]
+    then
+        break
+    fi
+done

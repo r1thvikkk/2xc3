@@ -1,0 +1,13 @@
+#!/bin/bash
+# checkwords - counts words in a dictionary, and optionally
+# how many are between a min and max length
+# Usage: checkwords <dictionary> [min max]
+# Rithvik Ballamudi, 400620595
+
+echo "There are $(cat $1 | wc -l) words in $1"
+
+if [[ $# -ge 3 ]]
+then
+    PATTERN="^.{$2,$3}\$"
+    echo "There are $(grep -P "$PATTERN" $1 | wc -l) words between $2 and $3 characters long"
+fi

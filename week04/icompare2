@@ -1,0 +1,41 @@
+#!/bin/bash
+# icompare2 - prints the smaller of two integers, after checking both
+# are valid (optional +/- sign, 1-9 digits, no leading zeros)
+# Usage: icompare2 <int1> <int2>
+# Rithvik Ballamudi, 400620595
+###########################
+# Checks whether a string is a valid integer
+# Globals: INT_PATTERN
+# Arguments: $1 = string to check
+# Outputs: error message on stderr if invalid
+# Returns: 0 if valid, 1 if not
+###########################
+is_int() {
+    if [[ $1 =~ $INT_PATTERN ]]
+    then
+        return 0
+    fi
+    echo "icompare2: '$1' is not a valid integer" >&2
+    return 1
+}
+# optional sign, then a single 0 or 1-9 digits not starting with 0
+INT_PATTERN='^[+-]?(0|[1-9][0-9]{0,8})$'
+if [[ $# -ne 2 ]]
+then
+    echo "icompare2: need exactly 2 arguments" >&2
+    exit 1
+fi
+is_int "$1" || exit 2
+is_int "$2" || exit 2
+declare -i FIRST=$1
+declare -i SECOND=$2
+if [[ $FIRST -eq $SECOND ]]
+then
+    echo "icompare2: the two numbers are the same" >&2
+    exit 1
+elif [[ $FIRST -gt $SECOND ]]
+then
+    echo "$2"
+else
+    echo "$1"
+fi

@@ -1,0 +1,40 @@
+Rithvik Ballamudi - 400620595
+Lab 4.1 Regex Practice
+
+PART 1
+
+REGEX
+  yes: REGEX, MY REGEX, REGEXES
+  no:  regex, REG EX, REGX
+
+^re*ge+x
+  yes: regex, rgex, reeegeeex
+  no:  rgx, aregex, regx
+
+[^regex]
+  yes: hello, a, REGEX
+  no:  regex, egger, xx
+
+(reg){0,2}ex
+  yes: ex, regex, regregex
+  no:  reg, e x, EX
+
+re?g?e?x
+  yes: rx, rex, regex
+  no:  ex, regeex, REX
+
+^(reg|REG)(ex)\2\1$
+  yes: regexexreg, REGexexREG
+  no:  regexreg, regexexREG, REGexexreg
+
+PART 2
+
+a(ab)*a                aaba, aabbaa, aabababa
+ab+c                   abc
+a.[bc]+                abc, abbbbbbbb, azc, abcbcbcbc, asccbbbbcbcccc
+abc|xyz                abc, xyz, abc|xyz
+[a-z]+[\.\?!]          Battle!, swamping., jump up., undulate?, is.?
+[a-zA-Z]*[^,]=         Putt=, FIdDlE7h=, Brittle =, Other.=
+[a-z][\.\?!]\s+[A-Z]   g. H, i? J
+<[^>]+>                <an xml tag>, <opentag>, <closetag>, </closetag>, <with attribute="77">
+(very )+(important )?(tall|well-dressed) person very very well-dressed person
