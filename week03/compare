@@ -1,0 +1,20 @@
+#!/bin/bash
+# compare - prints whichever of two arguments comes first alphabetically
+# Usage: compare <arg1> <arg2>
+# Rithvik Ballamudi, 400620595
+FIRST="$1"
+SECOND="$2"
+if [[ $# -ne 2 ]]
+then
+    echo "compare: need exactly 2 arguments" >&2
+    exit 1
+elif [[ "$FIRST" == "$SECOND" ]]
+then
+    echo "compare: the two arguments are the same" >&2
+    exit 1
+elif [[ "$FIRST" > "$SECOND" ]]
+then
+    echo "$SECOND"
+else
+    echo "$FIRST"
+fi

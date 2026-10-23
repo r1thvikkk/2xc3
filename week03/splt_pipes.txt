@@ -1,0 +1,13 @@
+# splt_pipes.txt - Rithvik Ballamudi, 400620595
+# 1. Lexicon (all unique words) from the English texts, one per line
+cat ~/2XC3-data/gutenberg/english/* | splt | sort | uniq
+# 2. Number of unique words found
+cat ~/2XC3-data/gutenberg/english/* | splt | sort | uniq | wc -l
+# 3. Number of unique words, also writing the lexicon to lexicon.txt
+cat ~/2XC3-data/gutenberg/english/* | splt | sort | uniq | tee lexicon.txt | wc -l
+# 4. First word in the lexicon
+cat ~/2XC3-data/gutenberg/english/* | splt | sort | uniq | head -n 1
+# 5. Last word in the lexicon
+cat ~/2XC3-data/gutenberg/english/* | splt | sort | uniq | tail -n 1
+# 6. The 9998th entry in the lexicon
+cat ~/2XC3-data/gutenberg/english/* | splt | sort | uniq | head -n 9998 | tail -n 1

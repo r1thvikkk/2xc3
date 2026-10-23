@@ -1,0 +1,8 @@
+#!/bin/bash
+# greet - greets someone by title and last name
+# Usage: greet <title> <first> <last>
+# Rithvik Ballamudi, 400620595
+TITLE=$1
+FIRST=$2
+LAST=$3
+echo "Hello $TITLE $LAST! May I call you $FIRST?"

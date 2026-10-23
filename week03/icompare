@@ -1,0 +1,20 @@
+#!/bin/bash
+# icompare - prints the smaller of two integer arguments
+# Usage: icompare <int1> <int2>
+# Rithvik Ballamudi, 400620595
+FIRST="$1"
+SECOND="$2"
+if [[ $# -ne 2 ]]
+then
+    echo "icompare: need exactly 2 arguments" >&2
+    exit 1
+elif [[ "$FIRST" -eq "$SECOND" ]]
+then
+    echo "icompare: the two numbers are the same" >&2
+    exit 1
+elif [[ "$FIRST" -gt "$SECOND" ]]
+then
+    echo "$SECOND"
+else
+    echo "$FIRST"
+fi

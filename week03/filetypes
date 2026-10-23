@@ -1,0 +1,22 @@
+#!/bin/bash
+# filetypes - says whether each argument is a file, directory, or unknown
+# Usage: filetypes <path> [path ...]
+# Rithvik Ballamudi, 400620595
+if [[ $# -eq 0 ]]
+then
+    echo "Usage: filetypes <path> [path ...]" >&2
+    exit 1
+fi
+for item in "$@"
+do
+    TYPE="unknown"
+    if [[ -f "$item" ]]
+    then
+        TYPE="file"
+    fi
+    if [[ -d "$item" ]]
+    then
+        TYPE="directory"
+    fi
+    echo "$TYPE: $item"
+done

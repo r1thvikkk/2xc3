@@ -1,0 +1,12 @@
+# wstat_pipes.txt - Rithvik Ballamudi, 400620595
+# Each word is put on its own line with splt, so average line length = average word length.
+# 1. Average word length for a single Spanish document
+splt < ~/2XC3-data/gutenberg/spanish/los_favores_del_mundo.txt | wc | wstat
+# 2. Average word length for all the Spanish documents
+cat ~/2XC3-data/gutenberg/spanish/* | splt | wc | wstat
+# 3. Average word length for the first 100 words in all the Spanish documents
+cat ~/2XC3-data/gutenberg/spanish/* | splt | head -n 100 | wc | wstat
+# 4. Average word length for the last 100 words in all the Spanish documents
+cat ~/2XC3-data/gutenberg/spanish/* | splt | tail -n 100 | wc | wstat
+# 5. Average word length for all unique words in the Spanish documents
+cat ~/2XC3-data/gutenberg/spanish/* | splt | sort | uniq | wc | wstat

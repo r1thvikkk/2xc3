@@ -1,0 +1,24 @@
+#!/bin/bash
+# bashsplit - reads stdin until EOF and prints each "word" on its own line
+# (does the same job as splt.c)
+# Usage: bashsplit < input
+# Rithvik Ballamudi, 400620595
+if [[ $# -gt 0 ]]
+then
+    echo "Usage: bashsplit < input   (takes no arguments)" >&2
+    exit 1
+fi
+set -f   # stop bash from turning * or ? into file names
+while true
+do
+    read -r line
+    STATUS=$?   # 0 if a line was read, non-zero once we hit EOF
+    for word in $line
+    do
+        printf '%s\n' "$word"
+    done
+    if [[ $STATUS -ne 0 ]]
+    then
+        break
+    fi
+done
